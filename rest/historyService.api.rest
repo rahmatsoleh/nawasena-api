@@ -1,0 +1,8 @@
+### CREATE HISTORY SERVICE
+POST http://localhost:3000/api/histroy-service
+Content-Type:  application/json
+
+{
+    "payment":0,
+    "userId":"clhm6rij10006vhnlgczbd7ib"
+}
