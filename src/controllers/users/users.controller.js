@@ -16,13 +16,13 @@ export const getUsers = async (req, res, next) => {
       if (!response)
         return res.status(404).json({
           error: true,
-          message: "Failed retrieved providers",
+          message: "Failed retrieved admin",
           data: [],
         });
 
       return res.status(200).json({
         error: false,
-        message: "Success retrieved providers",
+        message: "Success retrieved admin",
         data: response,
       });
     } else if (role === "provider") {
@@ -57,13 +57,13 @@ export const getUsers = async (req, res, next) => {
       if (!response)
         return res.status(404).json({
           error: true,
-          message: "Failed retrieved providers",
+          message: "Failed retrieved users",
           data: [],
         });
 
       return res.status(200).json({
         error: false,
-        message: "Success retrieved providers",
+        message: "Success retrieved users",
         data: response,
       });
     }

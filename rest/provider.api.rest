@@ -1,0 +1,2 @@
+### GET BY ID PROVIDER
+GET http://localhost:3000/api/provider/clhm4awkr0001vjqs9mr05vuf

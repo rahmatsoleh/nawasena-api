@@ -1,9 +1,10 @@
 import { Router } from "express";
 import upload from "./../../middlewares/multer/multer.middleware.js";
-import { uploadDocs } from "./../../controllers/provider/provider.controller.js";
+import * as provider from "./../../controllers/provider/provider.controller.js";
 
 const router = Router();
 
-router.patch("/uploads/:id", upload.single("document"), uploadDocs);
+router.get("/:id", provider.findProviderById);
+router.patch("/uploads/:id", upload.single("document"), provider.uploadDocs);
 
 export default router;

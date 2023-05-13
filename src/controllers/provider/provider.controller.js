@@ -44,3 +44,34 @@ export const uploadDocs = async (req, res, next) => {
     next(error);
   }
 };
+
+export const findProviderById = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const response = await prisma.providerDetail.findUnique({
+      where: {
+        userId: id,
+      },
+      include: {
+        user: true,
+      },
+    });
+
+    if (!response)
+      return res.status(404).json({
+        error: true,
+        message: "Provider not found",
+        data: null,
+      });
+
+    return res.status(200).json({
+      error: false,
+      message: "Provider retrieved",
+      data: response,
+    });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
