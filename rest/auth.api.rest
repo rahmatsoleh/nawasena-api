@@ -38,7 +38,7 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "tes providerdweyqegwyegweywgeywegygwyeyydywd",
+  "email": "tes provider",
   "password": "1234",
   "name": "Test Almanac"
 }
