@@ -1,5 +1,8 @@
+### GET HISTORY SERVICE
+GET http://localhost:3000/api/history-service
+
 ### CREATE HISTORY SERVICE
-POST http://localhost:3000/api/histroy-service
+POST http://localhost:3000/api/history-service
 Content-Type:  application/json
 
 {

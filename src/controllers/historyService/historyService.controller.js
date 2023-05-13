@@ -24,3 +24,25 @@ export const createHistoryService = async (req, res, next) => {
     next(error);
   }
 };
+
+export const getAllHistoryService = async (req, res, next) => {
+  try {
+    const historyServices = await prisma.historyService.findMany();
+
+    if (!historyServices)
+      return res.status(400).json({
+        error: true,
+        message: "Failed get all historyService",
+        data: null,
+      });
+
+    return res.status(200).json({
+      error: false,
+      message: "Success get all historyService",
+      data: historyServices,
+    });
+  } catch (error) {
+    console.log(object);
+    next(error);
+  }
+};
