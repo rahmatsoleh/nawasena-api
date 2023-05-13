@@ -26,21 +26,20 @@ export const getAll = async (req, res, next) => {
 export const createCategory = async (req, res, next) => {
   try {
     const response = await prisma.categoryProduct.create({
-      data: req.body
+      data: req.body,
     });
 
-    if (!response) return res.status(400).json({
-      error: true,
-      message: "Failed created category product",
-      data: null
-    })
+    if (!response)
+      return res.status(400).json({
+        error: true,
+        message: "Failed created category product",
+        data: null,
+      });
 
     return res.status(201).json({
       error: false,
       message: "Success created category product",
-      data: response
-    })
-  } catch (error) {
-
-  }
-}
+      data: response,
+    });
+  } catch (error) {}
+};

@@ -4,70 +4,71 @@ const prisma = new PrismaClient();
 
 export const getUsers = async (req, res, next) => {
   try {
-    const { role } = req.query
+    const { role } = req.query;
 
     if (role === "admin") {
       const response = await prisma.user.findMany({
         where: {
-          role: "admin"
-        }
+          role: "admin",
+        },
       });
 
-      if (!response) return res.status(404).json({
-        error: true,
-        message: "Failed retrieved providers",
-        data: []
-      })
+      if (!response)
+        return res.status(404).json({
+          error: true,
+          message: "Failed retrieved providers",
+          data: [],
+        });
 
       return res.status(200).json({
         error: false,
         message: "Success retrieved providers",
-        data: response
-      })
-
-
+        data: response,
+      });
     } else if (role === "provider") {
       const response = await prisma.user.findMany({
         where: {
-          role: "provider"
+          role: "provider",
         },
         include: {
-          ProviderDetail: true
-        }
+          ProviderDetail: true,
+        },
       });
 
-      if (!response) return res.status(404).json({
-        error: true,
-        message: "Failed retrieved providers",
-        data: []
-      })
+      if (!response)
+        return res.status(404).json({
+          error: true,
+          message: "Failed retrieved providers",
+          data: [],
+        });
 
       return res.status(200).json({
         error: false,
         message: "Success retrieved providers",
-        data: response
-      })
+        data: response,
+      });
     } else if (role === "user") {
       const response = await prisma.user.findMany({
         where: {
-          role: "user"
-        }
+          role: "user",
+        },
       });
 
-      if (!response) return res.status(404).json({
-        error: true,
-        message: "Failed retrieved providers",
-        data: []
-      })
+      if (!response)
+        return res.status(404).json({
+          error: true,
+          message: "Failed retrieved providers",
+          data: [],
+        });
 
       return res.status(200).json({
         error: false,
         message: "Success retrieved providers",
-        data: response
-      })
+        data: response,
+      });
     }
   } catch (error) {
     console.log(error);
-    next(error)
+    next(error);
   }
-}
+};
