@@ -24,7 +24,7 @@ app.get('/', async (req, res, next) => {
   res.send({ message: 'Awesome it works 🐻' });
 });
 
-// app.use('/images', express.static('./uploads'));
+app.use('/images', express.static('./uploads'));
 
 app.use('/api', routes);
 

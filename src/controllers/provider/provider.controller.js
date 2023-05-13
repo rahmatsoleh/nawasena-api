@@ -14,7 +14,7 @@ export const uploadDocs = async (req, res, next) => {
       })
     }
 
-    const provider = await prisma.detailProvider.update({
+    const provider = await prisma.providerDetail.update({
       where: {
         id: id
       },
@@ -41,5 +41,3 @@ export const uploadDocs = async (req, res, next) => {
     next(error)
   }
 }
-
-

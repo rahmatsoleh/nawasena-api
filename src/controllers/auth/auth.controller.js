@@ -175,11 +175,14 @@ export const login = async (req, res, next) => {
         expiresIn: '1d'
       })
 
+      const expiredAt = new Date(Date.now() + 24 * 60 * 60 * 1000);
+
       return res.status(200).json({
         error: false,
         message: "Login success",
         data: {
-          accessToken
+          accessToken,
+          expiredAt
         }
       })
     }
