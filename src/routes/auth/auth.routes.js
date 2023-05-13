@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { login, register } from "./../../controllers/auth/auth.controller.js";
-
+import { login, profile, register } from "./../../controllers/auth/auth.controller.js";
+import { verifyToken } from "./../../middlewares/auth/auth.middleware.js";
 const router = Router();
 
+router.get('/me/:id', verifyToken, profile);
 router.post('/register', register);
 router.post('/login', login);
 

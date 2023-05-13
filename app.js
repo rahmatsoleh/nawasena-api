@@ -24,6 +24,8 @@ app.get('/', async (req, res, next) => {
   res.send({ message: 'Awesome it works 🐻' });
 });
 
+// app.use('/images', express.static('./uploads'));
+
 app.use('/api', routes);
 
 app.use((req, res, next) => {
@@ -37,8 +39,6 @@ app.use((err, req, res, next) => {
     message: err.message,
   });
 });
-
-app.use(express.static(path.join(__dirname, "/build")));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 @ http://localhost:${PORT}`));
