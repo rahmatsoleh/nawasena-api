@@ -23,6 +23,8 @@ export const uploadDocs = async (req, res, next) => {
       }
     });
 
+    console.log(provider);
+
     if (!provider) return res.status(400).json({
       error: true,
       message: "Update documents failed",

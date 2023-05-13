@@ -38,13 +38,12 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "test admin",
+  "email": "tes providerdweyqegwyegweywgeywegygwyeyydywd",
   "password": "1234",
-  "phoneNumber": "081335594715",
   "name": "Test Almanac"
 }
 
 ### GET PROFILE
 GET http://localhost:3000/api/auth/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNsaGxsMnQ5aTAwMDB2ajAwY2QyaXJ4ejUiLCJlbWFpbCI6InRlc3QiLCJpYXQiOjE2ODM5NzMzODcsImV4cCI6MTY4NDA1OTc4N30.RyyqXRI8FnyZHKKGr-9-25p_vK2PELoFm8qF8e7Fmsw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNsaGxsMnQ5aTAwMDB2ajAwY2QyaXJ4ejUiLCJlbWFpbCI6InRlc3QiLCJpYXQiOjE2ODM5NzQ2MDUsImV4cCI6MTY4NDA2MTAwNX0.0GVIM8bzeoE8OAj-kuv1624jkd4kh5Ph2XSMlBs6vr8

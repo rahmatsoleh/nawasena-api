@@ -145,25 +145,18 @@ export const register = async (req, res, next) => {
 
 export const login = async (req, res, next) => {
   try {
-    const { email, phoneNumber, password, role } = req.body;
+    const { email, password } = req.body;
 
     const findCredentials = await prisma.user.findFirst({
       where: {
-        OR: [
-          {
-            email: email
-          },
-          {
-            phoneNumber: phoneNumber
-          }
-        ]
+        email: email,
       }
     });
 
     if (findCredentials) {
-      const match = bcrypt.compare(password, findCredentials?.password)
+      const match = await bcrypt.compare(password, findCredentials.password)
 
-      if (!match) return res.send(400).json({
+      if (!match) return res.status(400).json({
         error: true,
         message: "Password salah",
         data: []
