@@ -33,8 +33,14 @@ export const getAllService = async (req, res, next) => {
       where["categoryProductId"] = req.query?.categoryProductId;
     }
 
+    if (req.query?.search) {
+      where["namaUsaha"] = {
+        contains: req.query?.search,
+      };
+    }
+
     const services = await prisma.providerService.findMany({
-      where: where,
+      where,
     });
 
     if (!services)
