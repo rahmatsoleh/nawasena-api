@@ -45,6 +45,6 @@ Content-Type: application/json
 }
 
 ### GET PROFILE
-GET http://localhost:3000/api/auth/me/clhlogokm0004vj2c5wqwo9fz
+GET http://localhost:3000/api/auth/me
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNsaGxsMnQ5aTAwMDB2ajAwY2QyaXJ4ejUiLCJlbWFpbCI6InRlc3QiLCJpYXQiOjE2ODM5Njg5ODksImV4cCI6MTY4NDA1NTM4OX0.8lW-bVrt0WXeqxCAZEhjAPw2nj1Ny7t8pcdrJRbOzwM

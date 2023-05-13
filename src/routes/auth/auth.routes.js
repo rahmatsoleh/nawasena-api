@@ -3,7 +3,7 @@ import { login, profile, register } from "./../../controllers/auth/auth.controll
 import { verifyToken } from "./../../middlewares/auth/auth.middleware.js";
 const router = Router();
 
-router.get('/me/:id', verifyToken, profile);
+router.get('/me', verifyToken, profile);
 router.post('/register', register);
 router.post('/login', login);
 

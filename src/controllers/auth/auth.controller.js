@@ -196,10 +196,10 @@ export const login = async (req, res, next) => {
 
 export const profile = async (req, res, next) => {
   try {
-    const { id } = req.params;
+    const { email } = req;
     const response = await prisma.user.findUnique({
       where: {
-        id
+        email
       }
     });
 

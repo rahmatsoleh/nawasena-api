@@ -9,7 +9,7 @@ export const verifyToken = (req, res, next) => {
 
   jwt.verify(token, process.env.SECRET_TOKEN, (err, decoded) => {
     if (err) return res.sendStatus(403);
-    req.username = decoded.username;
+    req.email = decoded.email;
     next()
   })
 }
