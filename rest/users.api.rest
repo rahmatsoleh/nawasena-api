@@ -1,2 +1,10 @@
 ### GET USER
 GET http://localhost:3000/api/users?role=provider
+
+### PATCH PROVIDER DETAIL FOR ADMIN
+PATCH http://localhost:3000/api/users/provider-detail?email=provider1
+Content-Type: application/json
+
+{
+  "isVerified": true
+}

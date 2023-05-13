@@ -75,9 +75,10 @@ export const getUsers = async (req, res, next) => {
 
 export const patchProviderDetail = async (req, res, next) => {
   try {
+    const { email } = req.query;
     const user = await prisma.user.findUnique({
       where: {
-        email: req.email,
+        email,
       },
     });
 
