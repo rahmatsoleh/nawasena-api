@@ -24,3 +24,33 @@ export const createService = async (req, res, next) => {
     next(error);
   }
 };
+
+export const getAllService = async (req, res, next) => {
+  try {
+    let where = {};
+
+    if (req.query?.categoryProductId) {
+      where["categoryProductId"] = req.query?.categoryProductId;
+    }
+
+    const services = await prisma.providerService.findMany({
+      where: where,
+    });
+
+    if (!services)
+      return res.status(400).json({
+        error: true,
+        message: "Failed get all service",
+        data: null,
+      });
+
+    return res.status(200).json({
+      error: false,
+      message: "Success get all service",
+      data: services,
+    });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
