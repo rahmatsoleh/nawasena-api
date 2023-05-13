@@ -54,7 +54,11 @@ export const patchHistoryService = async (req, res, next) => {
 
 export const getAllHistoryService = async (req, res, next) => {
   try {
-    const historyServices = await prisma.historyService.findMany();
+    const historyServices = await prisma.historyService.findMany({
+      include: {
+        providerService: true,
+      },
+    });
 
     if (!historyServices)
       return res.status(400).json({

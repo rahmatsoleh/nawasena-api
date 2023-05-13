@@ -1,5 +1,8 @@
 ### GET SERVICE
-GET http://localhost:3000/api/provider-service
+GET http://localhost:3001/api/provider-service
+
+### GET SERVICE BY ID
+GET http://localhost:3001/api/provider-service/clhm8vnla0001vhmqbrs77jli
 
 ### CREATE SERVICE
 POST http://localhost:3000/api/provider-service

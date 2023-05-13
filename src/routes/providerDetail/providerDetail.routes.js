@@ -4,7 +4,6 @@ import * as providerDetail from "./../../controllers/providerDetail/providerDeta
 
 const router = Router();
 
-router.get("/:id", providerDetail.findProviderById);
 router.patch(
   "/uploads/:id",
   upload.single("document"),
