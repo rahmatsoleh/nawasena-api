@@ -34,3 +34,8 @@ model ProviderDetail {
   user               User    @relation(fields: [userId], references: [id])
   userId             String  @unique
 }
+
+model CategoryProduct {
+  id   String @id @default(cuid())
+  name String @unique
+}
