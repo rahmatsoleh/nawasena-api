@@ -16,15 +16,22 @@ enum Role {
   provider
 }
 
+enum ServiceStatus {
+  active
+  nonactive
+  busy
+}
+
 model User {
-  id             String          @id @default(cuid())
-  email          String          @unique
-  password       String
-  phoneNumber    String          @unique @db.VarChar(13)
-  name           String          @db.VarChar(100)
-  role           Role            @default(user)
-  isConfirmed    Boolean         @default(false)
-  ProviderDetail ProviderDetail?
+  id              String           @id @default(cuid())
+  email           String           @unique
+  password        String
+  phoneNumber     String           @unique @db.VarChar(13)
+  name            String           @db.VarChar(100)
+  role            Role             @default(user)
+  isConfirmed     Boolean          @default(false)
+  ProviderDetail  ProviderDetail?
+  ProviderService ProviderService?
 }
 
 model ProviderDetail {
@@ -35,7 +42,23 @@ model ProviderDetail {
   userId             String  @unique
 }
 
+model ProviderService {
+  id                String           @id @default(cuid())
+  namaUsaha         String
+  koordinat         String?
+  service           String
+  priceMin          Int
+  priceMax          Int
+  status            ServiceStatus    @default(nonactive)
+  user              User             @relation(fields: [userId], references: [id])
+  userId            String           @unique
+  categoryProductId String?
+  CategoryProduct   CategoryProduct?
+}
+
 model CategoryProduct {
-  id   String @id @default(cuid())
-  name String @unique
+  id                String          @id @default(cuid())
+  name              String          @unique
+  providerService   ProviderService @relation(fields: [providerServiceId], references: [id])
+  providerServiceId String          @unique
 }

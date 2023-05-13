@@ -1,7 +1,7 @@
 ### GET ALL CATEGORY PRODUCT
 GET http://localhost:3000/api/category-product
 
-### GET ALL CATEGORY PRODUCT
+### CREATE CATEGORY PRODUCT
 POST http://localhost:3000/api/category-product
 Content-Type:  application/json
 
