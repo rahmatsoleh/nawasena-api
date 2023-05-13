@@ -32,6 +32,8 @@ model User {
   isConfirmed     Boolean          @default(false)
   ProviderDetail  ProviderDetail?
   ProviderService ProviderService?
+  RatingService   RatingService[]
+  HistoryService  HistoryService[]
 }
 
 model ProviderDetail {
@@ -52,8 +54,11 @@ model ProviderService {
   status            ServiceStatus    @default(nonactive)
   user              User             @relation(fields: [userId], references: [id])
   userId            String           @unique
-  categoryProductId String?
-  CategoryProduct   CategoryProduct?
+  categoryProductId String
+  categoryProduct   CategoryProduct?
+  operasionals      Operasionals[]
+  ratingService     RatingService[]
+  historyService    HistoryService[]
 }
 
 model CategoryProduct {
@@ -61,4 +66,31 @@ model CategoryProduct {
   name              String          @unique
   providerService   ProviderService @relation(fields: [providerServiceId], references: [id])
   providerServiceId String          @unique
+}
+
+model Operasionals {
+  id                String          @id @default(cuid())
+  day               String
+  startAt           String
+  EndAt             String
+  providerService   ProviderService @relation(fields: [providerServiceId], references: [id])
+  providerServiceId String
+}
+
+model RatingService {
+  id              String            @id @default(cuid())
+  rating          Float?
+  comment         String?
+  providerService ProviderService[]
+  user            User              @relation(fields: [userId], references: [id])
+  userId          String
+}
+
+model HistoryService {
+  id              String            @id @default(cuid())
+  user            User              @relation(fields: [userId], references: [id])
+  userId          String
+  providerService ProviderService[]
+  dateTime        DateTime          @default(now())
+  payment         Int
 }
