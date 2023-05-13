@@ -69,43 +69,26 @@ export const register = async (req, res, next) => {
       };
 
       const transaction = await prisma.$transaction(async (tx) => {
-        const registerProvider = await prisma.user.create({
+        const registerProvider = await tx.user.create({
           data: data,
         });
 
-        if (!registerProvider)
-          return res.status(400).json({
-            error: true,
-            message: "Registration provider failed",
-            data: null,
-          });
-
-        console.log(registerProvider);
+        if (!registerProvider) throw new Error("Registration provider failed");
 
         const { id } = registerProvider;
 
-        const joinDetailProvider = await prisma.providerDetail.create({
+        const joinDetailProvider = await tx.providerDetail.create({
           data: {
             userId: id,
           },
         });
 
-        console.log(joinDetailProvider);
+        if (!joinDetailProvider) throw new Error("Join detail provider failed");
 
-        if (!joinDetailProvider)
-          return res.status(400).json({
-            error: true,
-            message: "Join detail provider failed",
-          });
-
-        return res.status(201).json({
-          status: false,
-          message: "Provider created successfully",
-          data: {
-            registerProvider,
-            joinDetailProvider,
-          },
-        });
+        return {
+          registerProvider,
+          joinDetailProvider,
+        };
       });
 
       if (!transaction)

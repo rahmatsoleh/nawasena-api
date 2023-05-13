@@ -54,7 +54,26 @@ export const findProviderById = async (req, res, next) => {
         userId: id,
       },
       include: {
-        user: true,
+        user: {
+          include: {
+            ProviderService: {
+              include: {
+                categoryProduct: true,
+                operasionals: true,
+                historyService: {
+                  include: {
+                    user: true,
+                  },
+                },
+                ratingService: {
+                  include: {
+                    user: true,
+                  },
+                },
+              },
+            },
+          },
+        },
       },
     });
 

@@ -1,0 +1,19 @@
+### GET HISTORY SERVICE
+GET http://localhost:3001/api/history-service
+
+### CREATE HISTORY SERVICE
+POST http://localhost:3000/api/history-service
+Content-Type:  application/json
+
+{
+    "payment":0,
+    "userId":"clhm6rij10006vhnlgczbd7ib"
+}
+
+### PATCH HISTORY SERVICE
+PATCH http://localhost:3001/api/history-service?id=clhmap1xp0003vhkk4t7c7jdn
+Content-Type:  application/json
+
+{
+    "statusTransaction": "ditolak"
+}
