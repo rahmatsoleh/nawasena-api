@@ -17,11 +17,20 @@ enum Role {
 }
 
 model User {
-  id          String  @id @default(cuid())
-  email       String  @unique
-  password    String
-  phoneNumber String  @unique @db.VarChar(13)
-  name        String  @db.VarChar(100)
-  role        Role    @default(user)
-  isConfirmed Boolean @default(false)
+  id             String          @id @default(cuid())
+  email          String          @unique
+  password       String
+  phoneNumber    String          @unique @db.VarChar(13)
+  name           String          @db.VarChar(100)
+  role           Role            @default(user)
+  isConfirmed    Boolean         @default(false)
+  ProviderDetail ProviderDetail?
+}
+
+model ProviderDetail {
+  id                 String  @id @default(cuid())
+  isVerified         Boolean @default(false)
+  joinRequestFileUrl String?
+  user               User    @relation(fields: [userId], references: [id])
+  userId             String  @unique
 }

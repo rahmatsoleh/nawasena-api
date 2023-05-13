@@ -3,10 +3,34 @@ POST http://localhost:3000/api/auth/register
 Content-Type: application/json
 
 {
-  "email": "tes",
+  "email": "tes user",
   "password": "1234",
   "phoneNumber": "081234567890",
   "name": "Test Almanac"
+}
+
+### REGISTERS PROVIDERS
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "tes provider 39",
+  "password": "1234",
+  "phoneNumber": "081234567839",
+  "name": "Test Almanac",
+  "role": "provider"
+}
+
+### REGISTERS ADMIN
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "tes admin",
+  "password": "1234",
+  "phoneNumber": "081234567892",
+  "name": "Test Almanac",
+  "role": "admin"
 }
 
 ### LOGIN USERS
@@ -14,7 +38,7 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "test",
+  "email": "test admin",
   "password": "1234",
   "phoneNumber": "081335594715",
   "name": "Test Almanac"
