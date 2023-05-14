@@ -64,6 +64,7 @@ model ProviderService {
   operasionals      Operasionals[]
   ratingService     RatingService[]
   historyService    HistoryService[]
+  rating            Float            @default(0)
 }
 
 model CategoryProduct {

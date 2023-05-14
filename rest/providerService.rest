@@ -9,10 +9,11 @@ POST http://localhost:3001/api/provider-service
 Content-Type: application/json
 
 {
-  "namaUsaha": "Kunci sehat",
+  "namaUsaha": "Kunci sakit",
   "priceMax": 10000,
   "priceMin": 10000,
   "service": "test",
-  "userId": "clhmo28ex000bvhcdsg67mw03",
-  "categoryProductId" : "clhmo18uc0000vhcdjca6j3in"
+  "userId": "clhmotbab0007vhbw654ivxh6",
+  "categoryProductId" : "clhmo18uc0000vhcdjca6j3in",
+  "rating" : 4.5
 }

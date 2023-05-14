@@ -10,14 +10,14 @@ Content-Type: application/json
 }
 
 ### REGISTERS PROVIDERS
-POST http://localhost:3000/api/auth/register
+POST http://localhost:3001/api/auth/register
 Content-Type: application/json
 
 {
-  "email": "tes provider 39",
+  "email": "halodek@gmail.com",
   "password": "1234",
-  "phoneNumber": "081234567839",
-  "name": "Test Almanac",
+  "phoneNumber": "08123456780",
+  "name": "Aji Soko",
   "role": "provider"
 }
 
