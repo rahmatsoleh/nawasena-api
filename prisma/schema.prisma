@@ -97,5 +97,6 @@ model HistoryService {
   statusTransaction StatusTransaction @default(selesai)
   user              User              @relation(fields: [userId], references: [id])
   userId            String
-  providerService   ProviderService[]
+  providerService   ProviderService   @relation(fields: [providerServiceId], references: [id])
+  providerServiceId String
 }

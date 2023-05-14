@@ -78,6 +78,7 @@ export const findServiceById = async (req, res, next) => {
         categoryProduct: true,
         operasionals: true,
         ratingService: true,
+        historyService: true,
       },
     });
 

@@ -5,7 +5,7 @@ GET http://localhost:3001/api/provider-service
 GET http://localhost:3001/api/provider-service/clhm8vnla0001vhmqbrs77jli
 
 ### CREATE SERVICE
-POST http://localhost:3000/api/provider-service
+POST http://localhost:3001/api/provider-service
 Content-Type: application/json
 
 {
@@ -13,6 +13,6 @@ Content-Type: application/json
   "priceMax": 10000,
   "priceMin": 10000,
   "service": "test",
-  "userId": "clhm6rij10006vhnlgczbd7ib",
-  "categoryProductId" : "clhm7bibz0000vhjqr2mmqu9s"
+  "userId": "clhmo28ex000bvhcdsg67mw03",
+  "categoryProductId" : "clhmo18uc0000vhcdjca6j3in"
 }

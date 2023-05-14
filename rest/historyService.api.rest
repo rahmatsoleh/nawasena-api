@@ -2,12 +2,13 @@
 GET http://localhost:3001/api/history-service
 
 ### CREATE HISTORY SERVICE
-POST http://localhost:3000/api/history-service
+POST http://localhost:3001/api/history-service
 Content-Type:  application/json
 
 {
-    "payment":0,
-    "userId":"clhm6rij10006vhnlgczbd7ib"
+    "payment":10000,
+    "userId":"clhmo28ex000bvhcdsg67mw03",
+    "providerServiceId":"clhmo53km000kvhcd7hlfgb39"
 }
 
 ### PATCH HISTORY SERVICE
